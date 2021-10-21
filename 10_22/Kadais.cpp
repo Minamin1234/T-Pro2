@@ -76,9 +76,91 @@ int find0(int a[], int n)
 
 //KadaiFuncs
 
+//Kadai_01
 void setk(int a[], int n, int k)
 {
-    a[n - 1] = k;
+    for (int i = 0; i < n; i++)
+    {
+        a[i] = k;
+    }
+}
+
+//Kadai_02
+double averageof(int a[], int n)
+{
+    int sum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        sum += a[i];
+    }
+    return (double)sum / n;
+}
+
+//Kadai_03
+int minof(int a[], int n)
+{
+    int min = a[0];
+    for (int i = 0; i < n; i++)
+    {
+        if (min > a[i]) min = a[i];
+    }
+    return min;
+}
+
+//Kadai_04
+int countk(int a[], int n, int k)
+{
+    int c = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] == k) c++;
+    }
+
+    return c;
+}
+
+//Kadai_05;
+int findk(int a[], int n, int k)
+{
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] == k) return i;
+    }
+
+    return -1;
+}
+
+//Kadai_06
+void copyarray(int a[], int b[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        b[i] = a[i];
+    }
+}
+
+//Kadai_07
+int innerproduct(int a[], int b[], int n)
+{
+    //ex.“ñ‚Â‚Ì“ñŸŒ³ƒxƒNƒgƒ‹‚Ì“àÏ‚Í(a1 * b1) + (a2 * b2).
+    int value = 0;
+    for (int i = 0; i < n; i++)
+    {
+        value += a[i] * b[i];
+    }
+
+    return value;
+}
+
+//Kadai_08
+int findc(char s[], char c)
+{
+    for (int i = 0;s[i] != '\0'; i++)
+    {
+        if (s[i] == c) return i;
+    }
+
+    return -1;
 }
 
 //Sample01
@@ -135,8 +217,45 @@ int main()
 }
 */
 
+//Kadai_01
 int main()
 {
+    //Kadai_01
+    const int arraysize = 10;
+    int a[arraysize];
+    setk(a, arraysize, 5);
+    disparray(a, arraysize);
+
+    //Kadai_02
+    int a2[] = { 1,1,3,4,5 };
+    cout << averageof(a2, 5) << endl;
+
+    //Kadai_03
+    int a3[] = { 3,2,8,1,6 };
+    cout << minof(a3, 5) << endl;
+
+    //Kadai_04
+    int a4[] = { 1,5,6,6,7,4 };
+    cout << countk(a4, 6, 6) << endl;
+
+    //Kadai_05
+    int a5[] = { 8,1,4,6,1 };
+    cout << findk(a5, 5, 1) << endl;
+
+    //Kadai_06
+    int a6[] = { 8,3,6,3,7 };
+    int a6_1[5];
+    copyarray(a6, a6_1, 5);
+    disparray(a6_1, 5);
+
+    //Kadai_07
+    int a7[] = { 1,4 };
+    int a7_1[] = { 5,3 };
+    cout << innerproduct(a7, a7_1, 2) << endl;
+
+    //Kadai_08
+    char a8[] = "HT21A099";
+    cout << findc(a8, 'A');
 
     return 0;
 }
