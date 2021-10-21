@@ -59,8 +59,26 @@ int count0(int a[], int n)
     int cnt = 0;
     for (int i = 0; i < n; i++)
     {
-
+        if (a[i] == 0) cnt++;
     }
+
+    return cnt;
+}
+
+int find0(int a[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] == 0) return i;
+    }
+    return -1;
+}
+
+//KadaiFuncs
+
+void setk(int a[], int n, int k)
+{
+    a[n - 1] = k;
 }
 
 //Sample01
@@ -106,10 +124,19 @@ int main()
 }
 */
 
+//Sample05_(2)
+/*
 int main()
 {
     int a[5] = { 3,5,2,6,1 };
     cout << maxof(a, 5) << endl;
+
+    return 0;
+}
+*/
+
+int main()
+{
 
     return 0;
 }
