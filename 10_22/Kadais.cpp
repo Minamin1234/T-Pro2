@@ -1,3 +1,4 @@
+//HT21A099
 #include<iostream>;
 #include<string>;
 
@@ -77,6 +78,7 @@ int find0(int a[], int n)
 //KadaiFuncs
 
 //Kadai_01
+//配列aの先頭からn個の要素の値をすべて値kにする関数。
 void setk(int a[], int n, int k)
 {
     for (int i = 0; i < n; i++)
@@ -86,6 +88,7 @@ void setk(int a[], int n, int k)
 }
 
 //Kadai_02
+//配列の先頭からn個の値の平均値戻す関数。
 double averageof(int a[], int n)
 {
     int sum = 0;
@@ -97,6 +100,7 @@ double averageof(int a[], int n)
 }
 
 //Kadai_03
+//配列から最小値を戻す関数。
 int minof(int a[], int n)
 {
     int min = a[0];
@@ -108,6 +112,7 @@ int minof(int a[], int n)
 }
 
 //Kadai_04
+//配列の値でｋと等しい値の個数を返す関数。
 int countk(int a[], int n, int k)
 {
     int c = 0;
@@ -120,6 +125,7 @@ int countk(int a[], int n, int k)
 }
 
 //Kadai_05;
+//配列の数値でｋと等しいもので、最小の要素番号を返す関数。
 int findk(int a[], int n, int k)
 {
     for (int i = 0; i < n; i++)
@@ -131,6 +137,7 @@ int findk(int a[], int n, int k)
 }
 
 //Kadai_06
+//配列aから配列bに値をコピーする関数。
 void copyarray(int a[], int b[], int n)
 {
     for (int i = 0; i < n; i++)
@@ -140,6 +147,7 @@ void copyarray(int a[], int b[], int n)
 }
 
 //Kadai_07
+//ベクトル配列同士の内積を返す関数。
 int innerproduct(int a[], int b[], int n)
 {
     //ex.二つの二次元ベクトルの内積は(a1 * b1) + (a2 * b2).
@@ -153,6 +161,7 @@ int innerproduct(int a[], int b[], int n)
 }
 
 //Kadai_08
+//配列ｓから文字ｃを探索し、見つかった要素番号を返す関数。存在しない場合はー１を返す。
 int findc(char s[], char c)
 {
     for (int i = 0;s[i] != '\0'; i++)
