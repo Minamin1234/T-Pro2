@@ -57,7 +57,7 @@ int palindrome(char c[])
 {
     string c_copy = "";
     string rev_c = "";
-    c_copy = c;
+    c_copy = c;//一度、string型に入れてしまえば、文字数は取得可能。
     for (int i = c_copy.size() - 1; i >= 0; i--)
     {
         rev_c += c_copy[i];
@@ -77,18 +77,15 @@ string studentid(int y, int i)
 //課題８　整数配列の中身で2番目に大きい数の要素を返す関数。
 int secondlargest(int a[], int n)
 {
-    int value = a[0];
-    bool IsFoundF = false;
-
+    int value = a[0], maxIdx = 0;
     for (int i = 1; i < n; i++)
     {
-        cout << a[i] << endl;
-        if (value < a[i])
-        {
-            if (IsFoundF) return a[i];
-            else value = a[i];
-            IsFoundF = true;
-        }
+        if (a[maxIdx] < a[i]) maxIdx = i;
+    }
+    for (int i = 0; i < n; i++)
+    {
+        if (i == maxIdx) continue;
+        if (value < a[i]) value = a[i];
     }
     return value;
 }
@@ -132,8 +129,29 @@ int main()
     cout << studentid(21, 99) << endl;
 
     //課題8のテスト
-    int a08[] = { 1,5,4,9,6,7,0 };
+    int a08[] = { 0,5,7,9,6,2,1 };
     cout << secondlargest(a08, 7);
 
     return 0;
 }
+
+/*Kadai8 別解
+bool IsFndS = false;
+for (int i = 1; i < n; i++)
+{
+    if (IsFndS)
+    {
+        if (i == maxIdx) continue;
+        if (value < a[i]) value = a[i];
+    }
+    else
+    {
+        if (a[maxIdx] < a[i]) maxIdx = i;
+    }
+    if (IsFndS != true && i == i - 1)
+    {
+        i = 0;
+        IsFndS = true;
+    }
+}
+*/
