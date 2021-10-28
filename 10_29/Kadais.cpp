@@ -1,5 +1,4 @@
 #include <iostream>
-#include <climits>
 #include <string>
 
 using namespace std;
@@ -9,8 +8,9 @@ void disparray(int a[], int n)
 {
     for (int i = 0; i < n; i++)
     {
-        cout << a[i] << endl;
+        cout << a[i] << ",";
     }
+    cout << endl;
 }
 
 //課題２　配列の要素すべてをｋ倍にする関数。
@@ -33,7 +33,7 @@ void intdec(double a, int& i, double& d)
 string mergechars(char c1, char c2)
 {
     string value = "";
-    value = c1 + c2;
+    value += c1;  value += c2;
     return value;
 }
 
@@ -43,7 +43,7 @@ int palindrome(char c[], int n)
     string c_copy = "";
     string rev_c = "";
     c_copy = c;
-    for (int i = n-1; i >= 0; i--)
+    for (int i = n - 2; i >= 0; i--)
     {
         rev_c += c[i];
     }
@@ -58,7 +58,7 @@ int palindrome(char c[])
     string c_copy = "";
     string rev_c = "";
     c_copy = c;
-    for (int i = c_copy.size(); i >= 0; i++)
+    for (int i = c_copy.size() - 1; i >= 0; i--)
     {
         rev_c += c_copy[i];
     }
@@ -71,7 +71,7 @@ string studentid(int y, int i)
 {
     string id_num = "A";
     if (i < 100) id_num += "0";
-    return "HT" + to_string(y) + "A" + id_num + to_string(i);
+    return "HT" + to_string(y) + id_num + to_string(i);
 }
 
 //課題８　整数配列の中身で2番目に大きい数の要素を返す関数。
@@ -80,8 +80,9 @@ int secondlargest(int a[], int n)
     int value = a[0];
     bool IsFoundF = false;
 
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i < n; i++)
     {
+        cout << a[i] << endl;
         if (value < a[i])
         {
             if (IsFoundF) return a[i];
@@ -108,10 +109,11 @@ int main()
     int aa_03 = 0;
     double aaa_03 = 0;
     intdec(a_03, aa_03, aaa_03);
+    cout << "i:" << aa_03 << ", d:" << aaa_03 << endl;
 
     //課題4のテスト
     char a04_1 = 'H', a04_2 = 'T';
-    cout << mergechars(a04_1, a04_2);
+    cout << mergechars(a04_1, a04_2) << endl;
 
     //課題5のテスト
     //回文の英単語の例　level, madam, dad, mom, pop, wow, peep,,,など
