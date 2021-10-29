@@ -130,8 +130,8 @@ int main()
 
     //‰Û‘è8‚ÌƒeƒXƒg
     int a08[] = { 0,5,7,9,6,2,1 };
-    cout << secondlargest(a08, 7);
-
+    cout << secondlargest(a08, 7) << endl;
+    
     return 0;
 }
 
