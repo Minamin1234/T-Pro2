@@ -115,12 +115,13 @@ int main()
     //課題5のテスト
     //回文の英単語の例　level, madam, dad, mom, pop, wow, peep,,,など
     char a05[] = "level";
-    cout << palindrome(a05, 6) << endl;
+    cout <<  palindrome(a05, 6) << endl;
     char a05_1[] = "levels";
     cout << palindrome(a05_1, 7) << endl;
 
     //課題6のテスト
-    char a06[] = "madam";
+    //char a06[] = "madam";
+    char a06[6] = { 'm','a','d','a','m' };
     cout << palindrome(a06) << endl;
     char a06_1[] = "adam";
     cout << palindrome(a06_1) << endl;
