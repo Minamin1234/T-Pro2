@@ -143,7 +143,7 @@ int main() {
     cout << nedan(25) << endl; //課題4の確認
     cout << dechex(10) << endl; //課題5の確認
     cout << gradepoint(65) << endl; //課題6の確認
-    cout << hexdec('B') << endl; //課題6の確認
-    cout << hexstr(104) << endl; //課題7の確認
+    cout << hexdec('B') << endl; //課題7の確認
+    cout << hexstr(104) << endl; //課題8の確認
     return 0;
 }
