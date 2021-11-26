@@ -1,3 +1,4 @@
+//HT21A099 Minami Riku
 //課題5
 //九九の表を表示するプログラム
 #include <iostream>
