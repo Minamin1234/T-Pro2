@@ -1,31 +1,26 @@
-//Kadai
+//Kadai_01
 #include <iostream>
 
 using namespace std;
 
 int main()
 {
-    const int x = 10, y = 10;
-    int a[x][y];
-    for (int i = 0; i < x; i++)
+    int n = 10;
+    int a[10][10];
+    for (int i = 0; i < n; i++)
     {
-        for (int ii = 0; ii < y; ii++)
-        {
-            a[i][ii] = 0;
-        }
+        cout << a[i][i] << ",";
     }
+    cout << endl;
 
-    for (int i = 0; i < x; i++)
+    for (int i = 0; i < n; i++)
     {
-        for (int ii = 0; ii < y; ii++)
-        {
-            cout << i << "," << ii << ":";
-            cout << a[i][ii] << endl;
-        }
+        a[i][i] = a[i][i] * n;
     }
     return 0;
 }
 
+//Kadai_02
 #include <iostream>
 
 using namespace std;
@@ -55,6 +50,7 @@ int main()
     return 0;
 }
 
+//Kadai_02
 #include <iostream>
 
 using namespace std;
@@ -89,6 +85,7 @@ int main()
     return 0;
 }
 
+//Kadai_04
 #include <iostream>
 
 using namespace std;
@@ -121,6 +118,7 @@ int main()
     return 0;
 }
 
+//Kadai_05
 #include <iostream>
 
 using namespace std;
