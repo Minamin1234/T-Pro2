@@ -30,6 +30,8 @@ void disparray(int a[y_size][x_size])
     cout << endl;
 }
 
+//課題1
+//二次元配列の要素を全てkにする関数。
 void setk(int a[y_size][x_size],int k)
 {
     for (int ii = 0; ii < y_size; ii++)
@@ -41,28 +43,9 @@ void setk(int a[y_size][x_size],int k)
     }
 }
 
-template <typename T> void setx(T mtrx[m_size][m_size], T x)
-{
-    for (int ii = 0; ii < m_size; ii++)
-    {
-        for (int i = 0; i < m_size; i++)
-        {
-            mtrx[ii][i] = x;
-        }
-    }
-}
 
-template <typename T> void setRand(T mtrx[m_size][m_size], int max)
-{
-    for (int ii = 0; ii < m_size; ii++)
-    {
-        for (int i = 0; i < m_size; i++)
-        {
-            mtrx[ii][i] = rand() % ( (int)max + 1);
-        }
-    }
-}
-
+//課題2
+//二次元配列の要素の全ての合計を返します。
 int sumof(int a[y_size][x_size])
 {
     int sum = 0;
@@ -76,8 +59,8 @@ int sumof(int a[y_size][x_size])
     return sum;
 }
 
-
-
+//課題3
+//二次元配列の要素を行列の表記で要素を出力する関数
 void dispmatrix(double m[m_size][m_size])
 {
     for (int ii = 0; ii < m_size; ii++)
@@ -93,6 +76,8 @@ void dispmatrix(double m[m_size][m_size])
     cout << endl;
 }
 
+//課題4
+//行列の要素をそれぞれd倍（スカラー倍）する関数
 void s_multiply(double m[m_size][m_size], double d)
 {
     for (int ii = 0; ii < m_size; ii++)
@@ -104,6 +89,8 @@ void s_multiply(double m[m_size][m_size], double d)
     }
 }
 
+//課題5
+//二次元配列m1の要素を同様の配列m2にコピーする関数
 void copymatrix(double m1[m_size][m_size], double m2[m_size][m_size])
 {
     for (int ii = 0; ii < m_size; ii++)
@@ -115,6 +102,8 @@ void copymatrix(double m1[m_size][m_size], double m2[m_size][m_size])
     }
 }
 
+//課題6
+//二次元配列m1,m2の和をm3に格納する関数。
 void m_add(double m1[m_size][m_size],
     double m2[m_size][m_size],
     double m3[m_size][m_size])
@@ -128,6 +117,8 @@ void m_add(double m1[m_size][m_size],
     }
 }
 
+//課題7
+//指定した二次元配列（行列）を転置する関数。
 void transpose(double m[m_size][m_size])
 {
     double nm[m_size][m_size];
@@ -148,6 +139,8 @@ void transpose(double m[m_size][m_size])
     }
 }
 
+//課題8
+//二次元配列（行列）m1,m2の積をm3に格納する関数
 void  m_multiply(double m1[m_size][m_size],
     double m2[m_size][m_size],
     double m3[m_size][m_size])
@@ -166,9 +159,38 @@ void  m_multiply(double m1[m_size][m_size],
     }
 }
 
+
+//独自に追加した関数
+
+//課題番号を出力する関数。
 void dispKadai(int KadaiNum)
 {
     cout << "Kadai" << KadaiNum << endl;
+}
+
+//setkの汎用的な関数。
+//特定の型に依存せず、int型やdouble型でも適用することができる。
+template <typename T> void setx(T mtrx[m_size][m_size], T x)
+{
+    for (int ii = 0; ii < m_size; ii++)
+    {
+        for (int i = 0; i < m_size; i++)
+        {
+            mtrx[ii][i] = x;
+        }
+    }
+}
+
+//最大値以内で適当な数を行列にセットする
+template <typename T> void setRand(T mtrx[m_size][m_size], int max)
+{
+    for (int ii = 0; ii < m_size; ii++)
+    {
+        for (int i = 0; i < m_size; i++)
+        {
+            mtrx[ii][i] = rand() % (max + 1);
+        }
+    }
 }
 
 int main()
