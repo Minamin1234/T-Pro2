@@ -1,98 +1,122 @@
-//Kadai_01
 #include <iostream>
 
 using namespace std;
 
-int main()
-{
-    int n = 10;
-    int a[10][10];
-    for (int i = 0; i < n; i++)
-    {
-        cout << a[i][i] << ",";
-    }
-    cout << endl;
+const int x_size = 3;
+const int y_size = 3;
 
-    for (int i = 0; i < n; i++)
+const int m_size = 3;
+
+void set0(int a[y_size][x_size])
+{
+    for (int y = 0; y < y_size; y++)
     {
-        a[i][i] = a[i][i] * n;
+        for (int x = 0; x < x_size; x++)
+        {
+            a[y][x] = 0;
+        }
     }
-    return 0;
 }
 
-//Kadai_02
-#include <iostream>
-
-using namespace std;
-
-int main()
+void disparray(int a[y_size][x_size])
 {
-    const int x = 3, y = 3;
-    int a[x][y];
-    for (int i = 0; i < x; i++)
+    for (int y = 0; y < y_size; y++)
     {
-        for (int ii = 0; ii < y; ii++)
+        for (int x = 0; x < x_size; x++)
         {
-            a[i][ii] = i + ii;
-            cout << i << "," << ii << endl;
+            cout << a[y][x] << ",";
+        }
+    }
+    cout << endl;
+}
+
+//課題1
+void setk(int a[y_size][x_size])
+{
+    int sum = 0;
+    for (int y = 0; y < y_size; y++)
+    {
+        for (int x = 0; x < y; x++)
+        {
+            sum += a[y][x];
+        }
+    }
+}
+
+//課題2
+int sumof(int a[y_size][x_size])
+{
+    const int sx = 3, sy = 3;
+    int c[sx][sy];
+    for (int x = 0; x < sx; x++)
+    {
+        for (int y = 0; y < sy; y++)
+        {
+            c[x][y] = x + y;
+            cout << x << "," << y << endl;
         }
     }
 
     int sum = 0;
-    for (int i = 0; i < x; i++)
+    for (int y = 0; y < sy; y++)
     {
-        for (int ii = 0; ii < y; ii++)
+        for (int x = 0; x < sx; x++)
         {
-            sum += a[i][ii];
+            sum += a[y][x];
         }
     }
     cout << "Sum:" << sum << endl;
-    return 0;
+    return sum;
 }
 
-//Kadai_02
-#include <iostream>
-
-using namespace std;
-
-int main()
+//課題3
+void dispmatrix(double m[m_size][m_size])
 {
-    const int x = 10, y = 10;
-    int rmax = 50;
-    int a[x][y];
-    for (int i = 0; i < x; i++)
+    const int sx = 10, sy = 10;
+    int a[sx][sy];
+    for (int y = 0; y < sx; y++)
     {
-        for (int ii = 0; ii < y; ii++)
+        for (int x = 0; x < sy; x++)
         {
-            a[i][ii] = rand() % rmax; //0~49
-            cout << i << "," << ii << ":" << a[i][ii] << endl;
+            a[y][x] = x + y;
+            cout << y << "," << x << ":" << a[y][x] << endl;
         }
     }
 
-    int imax = 0;
-    for (int i = 0; i < x; i++)
+    int max = 0;
+    for (int i = 0; i < sx; i++)
     {
-        for (int ii = 0; ii < y; ii++)
+        for (int ii = 0; ii < sy; ii++)
         {
-            if (a[i][ii] > imax)
+            if (a[i][ii] > max)
             {
-                imax = a[i][ii];
+                max = a[i][ii];
             }
         }
     }
 
-    cout << "Max:" << imax << endl;
-    return 0;
+    cout << "Max:" << max << endl;
 }
 
-//Kadai_04
-#include <iostream>
+//課題4
+void s_multiply(double m[m_size][m_size], double d)
+{
+    int n = 10;
+    int a[10][10];
+    for (int x = 0; x < n; x++)
+    {
+        cout << a[x][x] << ",";
+    }
+    cout << endl;
 
-using namespace std;
+    for (int x = 0; x < n; x++)
+    {
+        a[x][x] = a[x][x] * n;
+    }
+}
 
-//Ex. (5x^2 - 2y - 20 = 0)
-//1 <= x,y <= 100
-int main()
+//課題5
+void copymatrix(double m1[m_size][m_size], double m2[m_size][m_size])
 {
     int x, y;
     const int max = 100;
@@ -109,53 +133,32 @@ int main()
             if (frag)
             {
                 cout << "(X,Y):(" << x << "," << y << ")" << endl;
-                return 0;
+                return;
             }
             cout << "解:" << ansrs[x][y] << endl;
         }
     }
     cout << "解なし" << endl;
-    return 0;
 }
-
-//Kadai_05
-#include <iostream>
-
-using namespace std;
 
 int main()
 {
-    const int xmax = 9, ymax = 9;
-    int Kuku[xmax][ymax];
+    int b[y_size][x_size];
 
-    cout << " | ";
-    for (int x = 1; x <= xmax; x++)
-    {
-        cout << " " << x << " ";
-        for (int y = 1; y <= ymax; y++)
-        {
-            Kuku[x - 1][y - 1] = x * y;
-        }
-    }
-    cout << endl;
+    //課題1のテスト
+    disparray(b);
 
-    cout << "-";
-    for (int i = 0; i < xmax * 3; i++)
-    {
-        if (i == 0) cout << "+-";
-        else cout << "-";
-    }
-    cout << endl;
+    //課題2のテスト
+    cout << sumof(b) << endl;
 
-    for (int x = 1; x <= xmax; x++)
-    {
-        cout << x << "|" << " ";
-        for (int y = 1; y <= ymax; y++)
-        {
-            if (x * y >= 10) cout << x * y << " ";
-            else cout << " " << x * y << " ";
-        }
-        cout << endl;
-    }
-    return 0;
+    //課題3のテスト
+    double matrix[m_size][m_size];
+    dispmatrix(matrix);
+
+    //課題4のテスト
+    s_multiply(matrix, 100);
+
+    //課題5のテスト
+    double matrix2[m_size][m_size];
+    copymatrix(matrix, matrix2);
 }
