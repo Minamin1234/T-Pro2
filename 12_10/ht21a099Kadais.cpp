@@ -29,18 +29,21 @@ hms createhms()
 }
 
 //Kadai2
+//時間と分を分単位の合計を返します。秒単位は無視します。
 int hmstomin(hms t)
 {
     return t.hour * 60 + t.min;
 }
 
 //Kadai3
+//時間、分、秒を秒単位の合計を返します。
 int hmstosec(hms t)
 {
     return t.hour * (60 * 60) + t.min * 60 + t.sec;
 }
 
 //Kadai4
+//時間の構造体のメンバ変数の値をそれぞれの変数に格納します。
 void gethms(hms t, int& h, int& m, int& s)
 {
     h = t.hour;
@@ -49,6 +52,7 @@ void gethms(hms t, int& h, int& m, int& s)
 }
 
 //Kadai5
+//秒数から時間の構造体を作成し返します。
 hms createhms(int s)
 {
     hms nhms =
@@ -61,6 +65,7 @@ hms createhms(int s)
 }
 
 //Kadai6
+//時間の構造体に指定した秒数を加算した時間を格納します。
 void addsec(hms& t, int s)
 {
     t.sec += s;
@@ -71,6 +76,8 @@ void addsec(hms& t, int s)
 }
 
 //Kadai7
+//二つの時間を比較し、t1がt2よりも早い時刻の場合は、1
+//t2よりも遅い時刻の場合は-1,等しい場合には0を返します。
 int comphms(hms t1, hms t2)
 {
     unsigned int t1s = t1.hour * 3600 + t1.min * 60 + t1.sec;
@@ -81,6 +88,7 @@ int comphms(hms t1, hms t2)
 }
 
 //Kadai8
+//それぞれの時間を加算した時間(構造体)を返します。
 hms addhms(hms t1, hms t2)
 {
     hms nhms =
@@ -96,8 +104,8 @@ hms addhms(hms t1, hms t2)
     return nhms;
 }
 
-//
-
+//独自に追加した関数
+//「-----------Kadai----------」と指定した課題番号を出力します。
 void DispKadai(int KadaiNum)
 {
     cout << "----------Kadai" << KadaiNum << "----------" << endl;
