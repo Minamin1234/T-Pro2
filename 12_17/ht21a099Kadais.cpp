@@ -147,7 +147,7 @@ double lengthof(XY xy[], int n)
 }
 
 //Kadai7
-double areaof(XY xy[])
+double areaof(XY xy[3])
 {
 	double lowrLen = abs(xy[0].X - xy[2].X);
 	double height = abs(xy[0].Y - xy[1].Y);
@@ -214,8 +214,18 @@ int main()
 
 	//Kadai6
 	KADAI(6);
+	SetRandXY(V1, 5, 10);
+	dispXY(V1, 5);
+	cout << lengthof(V1, 5) << endl;
 
+	//Kadai7
 	KADAI(7);
+	XY Trngle[3];
+	SetRandXY(Trngle, 3, 15);
+	dispXY(Trngle, 3);
+	cout << areaof(Trngle) << endl;
+
+	//Kadai8
 	KADAI(8);
 
 	return 0;
