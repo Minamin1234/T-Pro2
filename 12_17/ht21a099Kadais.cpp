@@ -6,7 +6,6 @@
 #define DO_N(n) for(int i = 1;i <= n;i++){
 #define END }
 #define KADAI(num) cout << "----------Kadai" << num << "----------" << endl;
-#define TEST(exec,label) cout << exec << " " << label << endl;
 
 using namespace std;
 
