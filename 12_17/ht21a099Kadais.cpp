@@ -210,13 +210,13 @@ double nearestdist(XY xy[], int n)
 	double cLength;
 	double nearest = GetLengthAB(xy[0], xy[1]);
 	ARYLOOP
-		NLOOP(0)
-			if(i == t) continue;
-			cLength = GetLengthAB(xy[i],xy[t]);
-			if (cLength < nearest) nearest = cLength;
-		END
+		NLOOP(i + 1)
+		if (i == t) continue;
+	cLength = GetLengthAB(xy[i], xy[t]);
+	if (cLength < nearest) nearest = cLength;
 	END
-	return nearest;
+		END
+		return nearest;
 }
 
 
@@ -277,10 +277,10 @@ int main()
 
 	//Kadai8
 	KADAI(8);
-	XY Points[3];
-	SetRandXY(Points, 3, 10);
-	dispXY(Points, 3);
-	cout << nearestdist(Points, 3) << endl;
+	XY Points[10];
+	SetRandXY(Points, 10, 50);
+	dispXY(Points, 10);
+	cout << nearestdist(Points, 10) << endl;
 
 	return 0;
 }

@@ -133,13 +133,29 @@ double areaof(XY xy[3])
 	return Area;
 }
 
+//Kadai8
+//‚Q“_‚»‚ê‚¼‚ê‚ğŒ‹‚ñ‚¾Û‚Ì‹——£‚ğ‹‚ßAÅ’Z‹——£‚ğ•Ô‚µ‚Ü‚·B
+double nearestdist(XY xy[], int n)
+{
+	double cLength;
+	double nearest = GetLengthAB(xy[0], xy[1]);
+	ARYLOOP
+		NLOOP(i + 1)
+		if (i == t) continue;
+	cLength = GetLengthAB(xy[i], xy[t]);
+	if (cLength < nearest) nearest = cLength;
+	END
+		END
+		return nearest;
+}
+
 int main()
 {
-	//Kadai7
-	KADAI(7);
-	XY Trngle[3];
-	SetRandXY(Trngle, 3, 15);
-	dispXY(Trngle, 3);
-	cout << areaof(Trngle) << endl;
+	//Kadai8
+	KADAI(8);
+	XY Points[10];
+	SetRandXY(Points, 10, 1000);
+	dispXY(Points, 10);
+	cout << nearestdist(Points, 10) << endl;
 	return 0;
 }
