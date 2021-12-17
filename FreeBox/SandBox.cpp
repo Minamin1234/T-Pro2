@@ -103,23 +103,32 @@ XY GetHighest(XY Points[], int n)
 	return Highest;
 }
 
+void ReplaceValue(XY Points[], int n, int Index)
+{
+	if (n - 1 == Index) return;
+	XY cxy = Points[Index];
+	Points[Index] = Points[n - 1];
+	Points[n - 1] = cxy;
+}
+
 //
 double areaof(XY xy[3])
 {
-	XY PNearest = GetNearest(xy,3);
-	XY PFarest = GetFarest(xy, 3);
-	XY PHighest = GetHighest(xy, 3);
-	PFarest =
-	{
-		abs(PFarest.X - PNearest.X),
-		abs(PFarest.Y - PNearest.Y)
-	};
-	PHighest =
-	{
-		abs(PHighest.X - PNearest.X),
-		abs(PHighest.Y - PNearest.Y)
-	};
-	double Area = abs(PFarest.X * PHighest.Y - PHighest.X * PFarest.Y);
+	int IdxNearest = 0;
+	NARYLOOP(3)
+		if (GetSum(xy[i]) < GetSum(xy[IdxNearest])) IdxNearest = i;
+	END
+	NARYLOOP(3)
+		xy[i] =
+		{
+			abs(xy[i].X - xy[IdxNearest].X),
+			abs(xy[i].Y - xy[IdxNearest].Y)
+		};
+	END
+	ReplaceValue(xy,3,IdxNearest);
+	double Area =
+		abs(xy[0].X * xy[1].Y) +
+		abs(xy[1].X * xy[0].Y);
 	Area /= 2;
 	return Area;
 }

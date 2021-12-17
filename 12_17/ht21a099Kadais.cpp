@@ -2,11 +2,13 @@
 #include <random>
 
 #define ARYLOOP for(int i = 0;i < n;i++){ 
+#define NARYLOOP(n) for(int i = 0;i < n;i++){
 #define NLOOP(init) for(int t = init;t < n;t++){ 
 #define DO_N(n) for(int i = 1;i <= n;i++){  
 #define END } 
 #define KADAI(num) cout << "----------Kadai" << num << "----------" << endl; 
 //ARYLOOP 全ての配列内要素を取り出すためのループ
+//NARYLOOP(n) n個の長さの配列の要素を取り出す為のループ
 //NLOOP(init) initから始まるインデックスのループ
 //DO_N 回ループします。iは現在回数を表します。
 //END ループ内の処理の終端を表します。
@@ -94,6 +96,21 @@ double GetLengthAB(XY A, XY B)
 	return sqrt(pow(dxy.X, 2) + pow(dxy.Y, 2));
 }
 
+//指定したインデックスの要素を末尾に移動させます。
+void ReplaceValue(XY Points[], int n, int Index)
+{
+	if (n - 1 == Index) return;
+	XY cxy = Points[Index];
+	Points[Index] = Points[n - 1];
+	Points[n - 1] = cxy;
+}
+
+//指定した構造体のメンバ変数のそれぞれの合計を返します。
+double GetSum(XY A)
+{
+	return A.X + A.Y;
+}
+
 //課題----------------------------------------------------------
 
 //Kadai1
@@ -165,13 +182,25 @@ double lengthof(XY xy[], int n)
 
 //Kadai7
 //三点からなる三角形の面積を返します。
-//点は時計回りに配置されるものと仮定して。xy[0]が左側、xy[2]が右側でそれを結んだ辺が
-//底辺と仮定している。
 double areaof(XY xy[3])
 {
-	double lowrLen = abs(xy[0].X - xy[2].X);
-	double height = abs(xy[0].Y - xy[1].Y);
-	return (lowrLen * height) / 2;
+	int IdxNearest = 0;
+	NARYLOOP(3)
+		if (GetSum(xy[i]) < GetSum(xy[IdxNearest])) IdxNearest = i;
+	END
+	NARYLOOP(3)
+		xy[i] =
+		{
+			abs(xy[i].X - xy[IdxNearest].X),
+			abs(xy[i].Y - xy[IdxNearest].Y)
+		};
+	END
+		ReplaceValue(xy, 3, IdxNearest);
+	double Area =
+		abs(xy[0].X * xy[1].Y) +
+		abs(xy[1].X * xy[0].Y);
+	Area /= 2;
+	return Area;
 }
 
 //Kadai8
